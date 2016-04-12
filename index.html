@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>青果音乐</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div ng-app="Home">
+  <div class="qHeader">
+    <div class="qCenter">
+      <a href="#/" class="qNav current">首页</a>
+      <a href="#/recommend" class="qNav">推荐</a>
+      <a href="#/topList" class="qNav">排行榜</a>
+      <a href="#/playList" class="qNav">歌单</a>
+      <h1 class="qLogo">青果音乐</h1>
+      <form class="qSearch">
+        <input type="text" placeholder="搜索歌曲"/>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="qMain">
+    <div class="qCenter"><div ui-view></div></div>
+  </div>
+
+  <div class="qFooter">
+    <div class="qCenter">
+      <div class="qPlan">
+        <div class="qTitle">独立音乐人招募计划</div>
+        <div class="qDesc">加入我们即将与超过亿万乐迷狂欢</div>
+      </div>
+      <div class="qContact"></div>
+      <div class="qGuestbook"></div>
+    </div>
+  </div>
+
+<link rel="stylesheet" href="scripts/libs/aplayer/APlayer.min.css"/>
+<!-- ... -->
+<div class="qPlayer">
+  <div class="qCenter">
+  <div id="player1" class="aplayer"></div>
+  </div>
+</div>
+
+<!-- ... -->
+<script src="scripts/libs/aplayer/APlayer.min.js"></script>
+<script type="text/javascript">
+ var ap1 = new APlayer({
+        element: document.getElementById('player1'),
+        narrow: false,
+        autoplay: true,
+        showlrc: false,
+        mutex: true,
+        theme: '#C70C0C',
+        music: {
+            title: 'Preparation',
+            author: 'Hans Zimmer/Richard Harvey',
+            url: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.mp3',
+            pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+        }
+    });
+    ap1.init();
+</script>
+
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="http://apps.bdimg.com/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/controllers/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+var app=angular.module("Home",["ui.router"]);
+window.location.href="#/";
+app.config(function($stateProvider,$urlRouterProvider){
+	//音乐首页
+    $stateProvider.state("/",{
+        url:"/",
+        templateUrl:'views/musicIndex.html',
+        controller:'musicIndex'
+    });
+	//音乐列表
+    $stateProvider.state("recommend",{
+        url:"/recommend",
+        templateUrl:'views/recommend.html',
+        controller:'recommend'
+    });
+    $stateProvider.state("topList",{
+        url:"/topList",
+        templateUrl:'views/topList.html',
+        controller:'topList'
+    });
+    $stateProvider.state("playList",{
+        url:"/playList",
+        templateUrl:'views/playList.html',
+        controller:'playList'
+    });
+});

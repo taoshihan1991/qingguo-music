@@ -1,2 +1,2 @@
-# react
-react 学习demo
+# AugularJS实例
+音乐播放网站

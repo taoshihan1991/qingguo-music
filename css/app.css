@@ -1,0 +1,162 @@
+*{
+  margin:0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+body{
+  background: #ebebeb;
+  font-family: 'Heiti SC','Lantinghei SC','Microsoft Yahei',arial;
+}
+.qClear{
+  clear: both;
+}
+.qCenter{
+  width: 980px;
+  margin:0 auto;
+}
+.qHeader{
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  text-align: center;
+}
+.qHeader .qNav{
+  text-decoration: none;
+  color:#999;
+  font-size: 14px;
+  float: left;
+  margin-right: 20px;
+  display: inline-block;
+  height: 76px;
+  line-height: 76px;
+}
+.qHeader .qNav.current{
+  border-bottom: 4px solid #6ed56c;  
+}
+.qHeader .qNav:hover{
+  border-bottom: 4px solid #6ed56c;
+}
+.qHeader .qLogo{
+  height: inherit;
+  line-height: 80px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  color: #6ed56c;
+  font-size: 20px;
+  font-family: "Microsoft Yahei";
+  display: inline-block;
+  text-align: center;
+}
+.qHeader .qSearch{
+  float: right;
+  height: 32px;
+  width: 212px;
+  border:1px solid #e8e8e8;
+  margin-top: 24px;
+  border-radius: 15px;
+  background: #f7f7f7
+}
+.qHeader .qSearch input{
+  height: 30px;
+  width: 210px;
+  margin: 1px;
+  border: none;
+  background: none;
+  outline: none;
+  padding-left: 5px;
+}
+/*main*/
+.qMain .qCenter{
+  height: 450px;
+}
+.qMusicBox .qItem{
+  width: 185px;
+  height: 315px;
+  background: #fff;
+  margin-top: 15px;
+}
+.qMusicBox .qItem .qThumb{
+  display: block;
+}
+.qMusicBox .qItem .qThumb img{
+  width: 185px;
+  height: 185px;
+  box-shadow: 0 2px 2px rgba(0,0,0,.3);
+}
+.qMusicBox .qItem .qName{
+  color: #4a4a4a;
+  font-size: 14px;
+  display: block;
+  margin: 15px 5px 0 5px;
+  line-height: 18px;
+}
+
+/*播放器*/
+.qPlayer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,.7);
+  height: 53px;
+}
+.qPlayer .aplayer .aplayer-info{
+  padding: 0;
+}
+.qPlayer .aplayer .aplayer-pic{
+  width: 35px;
+  height: 35px;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-music{
+  margin-bottom: 12px;
+}
+.qPlayer .aplayer .aplayer-info{
+  margin-left: 48px;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-music .aplayer-author{
+  color: #9B9B9B;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-music .aplayer-title{
+  color: #fff;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar{
+  height: 5px;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb{
+  width: 10px;
+  height: 10px;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played{
+  height: 5px;
+}
+.qPlayer .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap{
+  margin: 0 140px 0 3px;
+}
+
+/*footer*/
+.qFooter{
+  height: 130px;
+  border-top: 1px solid #d5d5d5;
+  background: #f9f9f9;
+  overflow: hidden;
+  font-size: 12px;
+  color: #999;
+}
+.qFooter .qCenter{
+  margin-top: 35px;
+}
+.qFooter .qPlan{
+  width: 235px;
+  float: left;
+}
+.qFooter .qPlan .qTitle{
+  color: #666;
+  margin-bottom: 5px;
+}

@@ -7,12 +7,20 @@ var ap1 = new APlayer({
     showlrc: false,
     mutex: true,
     theme: '#C70C0C',
-    music: {
-        title: '在他乡',
-        author: '水木年华',
-        url: 'http://sc.111ttt.com/up/mp3/110892/2466AEB3911F8D8308C45EB29E3F9B95.mp3',
-        pic: 'http://img1.kuwo.cn/star/starheads/240/79/78/2507339289.jpg'
-    }
+    music:[
+        {
+            title: '一直很安静',
+            author: '《仙剑奇侠传》电视剧',
+            url: 'http://link.hhtjim.com/163/5260494.mp3',
+            pic: 'images/2.jpg'
+        },
+        {
+            title: '终于明白',
+            author: '《仙剑奇侠传》电视剧',
+            url: 'http://link.hhtjim.com/163/5260505.mp3',
+            pic: 'images/3.jpg'
+        }
+    ]
 });
 ap1.init();
     

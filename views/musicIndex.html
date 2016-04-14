@@ -1,18 +1,11 @@
 <div class="qMusicBox">
-	<div class="qItem" data-init="http://link.hhtjim.com/163/5260494.mp3">
-		<a href="" class="qThumb">
-		<img src="images/2.jpg"/>
+	<div class="qItem" ng-repeat="info in musicList" ng-class="{true:'noMargin'}[$index%5==4]">
+		<a href="" class="qThumb" ng-click="play($index)">
+		<img src="{{info.pic}}"/>
 		<i class="qIcon"></i>
 		</a>
-		<a href="" class="qName">一直很安静,电视剧《仙剑奇侠传》插曲</a>
-		<div class="qChannel"><span class="qGreen">《仙剑奇侠传》电视剧</span>频道</div>
+		<a href="" class="qName" ng-click="play($index)">{{info.title}}</a>
+		<div class="qChannel"><span class="qGreen">{{info.author}}</span>频道</div>
 	</div>
-	<div class="qItem" data-init="http://link.hhtjim.com/163/5260505.mp3">
-		<a href="" class="qThumb">
-		<img src="images/3.jpg"/>
-		<i class="qIcon"></i>
-		</a>
-		<a href="" class="qName">终于明白,电视剧《仙剑奇侠传》插曲</a>
-		<div class="qChannel"><span class="qGreen">《仙剑奇侠传》电视剧</span>频道</div>
-	</div>
+	<div class="qClear"></div>
 </div>

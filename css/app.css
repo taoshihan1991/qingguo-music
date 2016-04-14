@@ -73,7 +73,7 @@ body{
 }
 /*main*/
 .qMain .qCenter{
-  height: 450px;
+  margin-bottom: 10px;
 }
 .qMusicBox .qItem{
   width: 185px;
@@ -81,7 +81,7 @@ body{
   background: #fff;
   margin-top: 15px;
   float: left;
-  margin-right:18px;
+  margin-right:13px;
 }
 .qMusicBox .qItem .qThumb{
   display: block;
@@ -124,6 +124,11 @@ body{
   display: block;
   margin: 15px 5px 0 5px;
   line-height: 18px;
+  height: 36px;
+  overflow: hidden;
+}
+.qMusicBox .qItem.noMargin{
+  margin-right: 0;
 }
 .qMusicBox .qItem .qChannel{
   color: #9b9b9b;

@@ -65,27 +65,37 @@ window.location.href="#/index";
 //         },
 
 //     ];
-$.ajax({
-     type: "GET",
-     url: "apis/playlist.php",
-     dataType: "json",
-     success:function(musicData){
-         var ap1 = new APlayer({
-            element: document.getElementById('player1'),
-            narrow: false,
-            autoplay: true,
-            showlrc: false,
-            mutex: true,
-            theme: '#C70C0C',
-            music:musicData
-        });
-        ap1.init();       
-     },
-     error:function(){
-        console.log("服务端无响应");
-     }
-});
-
+var musicData=JSON.parse(localStorage.getItem("music"));
+if(musicData){
+    var musicData=JSON.parse(localStorage.getItem("music"));
+    showMusic(musicData);    
+}else{
+    $.ajax({
+         type: "GET",
+         url: "apis/playlist.php",
+         dataType: "json",
+         success:function(musicData){
+            localStorage.setItem("music",JSON.stringify(musicData));
+            showMusic(musicData);    
+         },
+         error:function(){
+            console.log("服务端无响应");
+         }
+    });    
+}
+// 播放音乐
+function showMusic(musicData){
+     var ap1 = new APlayer({
+        element: document.getElementById('player1'),
+        narrow: false,
+        autoplay: true,
+        showlrc: false,
+        mutex: true,
+        theme: '#C70C0C',
+        music:musicData
+    });
+    ap1.init();    
+}
     
 app.config(function($stateProvider,$urlRouterProvider){
 

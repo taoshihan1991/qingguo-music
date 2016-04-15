@@ -1,7 +1,7 @@
 <div class="qMusicBox">
 	<div class="qItem" ng-repeat="info in musicList" ng-class="{true:'noMargin'}[$index%5==4]">
 		<a href="" class="qThumb" ng-click="play($index)">
-		<img src="{{info.pic}}"/>
+		<img src="" bn-lazy-src="{{info.pic}}"/>
 		<i class="qIcon"></i>
 		</a>
 		<a href="" class="qName" ng-click="play($index)">{{info.title}}</a>

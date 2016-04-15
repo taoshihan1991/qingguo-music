@@ -1,19 +1,21 @@
 //音乐首页
-app.controller("musicIndex",function($scope){
-
-	$scope.musicList=musicJson;
-	$scope.play=function(index){
-		var ap1 = new APlayer({
-		    element: document.getElementById('player1'),
-		    narrow: false,
-		    autoplay: true,
-		    showlrc: false,
-		    mutex: true,
-		    theme: '#C70C0C',
-		    music:musicJson[index]
-		});
-		ap1.init();
-	}
+app.controller("musicIndex",function($scope,$http){
+	$http.get("apis/playlist.php")
+    .success(function(musicData) {
+		$scope.musicList=musicData;
+		$scope.play=function(index){
+			var ap1 = new APlayer({
+			    element: document.getElementById('player1'),
+			    narrow: false,
+			    autoplay: true,
+			    showlrc: false,
+			    mutex: true,
+			    theme: '#C70C0C',
+			    music:musicData[index]
+			});
+			ap1.init();
+		}
+    });
 
 });
 

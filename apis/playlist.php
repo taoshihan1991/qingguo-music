@@ -1,6 +1,6 @@
 <?php
 // 歌单的id
-$neteast=https_request("http://music.163.com/api/playlist/detail?id=362664951");
+$neteast=https_request("http://music.163.com/api/playlist/detail?id=329237974");
 $neteastJson=json_decode($neteast,true);
 if($neteastJson['code']==200){
 	$songs=$neteastJson['result']['tracks'];

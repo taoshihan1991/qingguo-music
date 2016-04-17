@@ -203,3 +203,46 @@ body{
   color: #666;
   margin-bottom: 5px;
 }
+/*banner*/
+.qBanner{
+  margin-top: 10px;
+  height: 152px;
+  overflow: hidden;
+  position: relative;
+}
+.qBanner .qItem{
+  width: 980px;
+  position: absolute;
+  top: 0;
+}
+.qBanner .qOne{
+  left: 0;
+  animation:banner1 5s ease 5s infinite;
+}
+.qBanner .qTwo{
+  left: 980px;
+  animation:banner2 10s ease 5s infinite;
+}
+.qBanner .qThree{
+  left: 980px;
+  animation:banner2 10s ease 10s infinite;
+}
+@keyframes banner1{
+  0%{
+    left: 0;
+  }
+  100%{
+    left:-980px;
+  }
+}
+@keyframes banner2{
+  0%{
+    left: 980px;
+  }
+  50%{
+    left:0px;
+  }
+  100%{
+    left:-980px;
+  }
+}

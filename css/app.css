@@ -82,6 +82,7 @@ body{
   margin-top: 15px;
   float: left;
   margin-right:13px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
 .qMusicBox .qItem .qThumb{
   display: block;
@@ -116,7 +117,6 @@ body{
 .qMusicBox .qItem .qThumb img{
   width: 185px;
   height: 185px;
-  box-shadow: 0 2px 2px rgba(0,0,0,.3);
 }
 .qMusicBox .qItem .qName{
   color: #4a4a4a;

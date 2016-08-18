@@ -1,6 +1,21 @@
 <?php
 // 歌单的id
-$neteast=https_request("http://music.163.com/api/playlist/detail?id=329237974");
+$action=isset($_GET['action']) ? $_GET['action'] : 'index';
+switch ($action) {
+	case 'index':
+		$songId=405369090;
+		break;
+	case 'china':
+		$songId=422120471;
+		break;
+	case 'movie':
+		$songId=424038303;
+		break;
+	case 'young':
+		$songId=37917950;
+		break;
+}
+$neteast=https_request("http://music.163.com/api/playlist/detail?id={$songId}");
 $neteastJson=json_decode($neteast,true);
 if($neteastJson['code']==200){
 	$songs=$neteastJson['result']['tracks'];

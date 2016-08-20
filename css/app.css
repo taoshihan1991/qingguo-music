@@ -140,6 +140,9 @@ body{
   color: #6ed56c;
   margin-right: 2px;
 }
+.qMusicBox .qItem .qChannel .qDownload{
+  cursor: pointer;
+}
 /*播放器*/
 .qPlayer{
   position: fixed;
@@ -185,7 +188,7 @@ body{
 
 /*footer*/
 .qFooter{
-  height: 130px;
+  height: 145px;
   border-top: 1px solid #d5d5d5;
   background: #f9f9f9;
   overflow: hidden;
@@ -196,7 +199,7 @@ body{
   margin-top: 35px;
 }
 .qFooter .qPlan{
-  width: 235px;
+  width: 700px;
   float: left;
 }
 .qFooter .qPlan .qTitle{

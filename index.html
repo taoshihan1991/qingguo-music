@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>青果音乐</title>
+  <title>青果云音乐</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/app.css">
@@ -16,9 +16,9 @@
       <a href="#/china" class="qNav">『意境古风』</a>
       <a href="#/movie" class="qNav">『影音江湖』</a>
       <a href="#/young" class="qNav">『励志青春』</a>
-      <h1 class="qLogo">青果音乐</h1>
-      <form class="qSearch">
-        <input type="text" placeholder="搜索歌曲"/>
+      <h1 class="qLogo">青果云音乐</h1>
+      <form class="qSearch" ng-controller="searchCtrl">
+        <input type="text" placeholder="输入网易云音乐歌单id" ng-model="songId" ng-keyup="search($event)"/>
       </form>
     </div>
   </div>
@@ -30,8 +30,8 @@
   <div class="qFooter">
     <div class="qCenter">
       <div class="qPlan">
-        <div class="qTitle">独立音乐人招募计划</div>
-        <div class="qDesc">加入我们即将与超过亿万乐迷狂欢</div>
+        <div class="qTitle">青果云音乐网页版</div>
+        <div class="qDesc">不用安装客户端也能下载网易云音乐了，按Ctrl+D 快来收藏我吧</div>
       </div>
       <div class="qContact"></div>
       <div class="qGuestbook"></div>

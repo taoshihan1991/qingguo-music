@@ -15,6 +15,8 @@ switch ($action) {
 		$songId=37917950;
 		break;
 }
+$songId=isset($_GET['songId']) ? intval($_GET['songId']) : $songId;
+
 $neteast=https_request("http://music.163.com/api/playlist/detail?id={$songId}");
 $neteastJson=json_decode($neteast,true);
 if($neteastJson['code']==200){

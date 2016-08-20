@@ -1,68 +1,4 @@
 var app=angular.module("Home",["ui.router"]);
-window.location.href="#/index";
-// var musicJson=[
-//         {
-//             title: '一直很安静,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260494.mp3',
-//             pic: 'images/2.jpg'
-//         },
-//         {
-//             title: '终于明白,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260505.mp3',
-//             pic: 'images/3.jpg'
-//         },
-//         {
-//             title: '六月的雨',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/200760.mp3',
-//             pic: 'images/4.jpg'
-//         },
-//         {
-//             title: '一直很安静,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260494.mp3',
-//             pic: 'images/2.jpg'
-//         },
-//         {
-//             title: '终于明白,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260505.mp3',
-//             pic: 'images/3.jpg'
-//         },
-//         {
-//             title: '六月的雨',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/200760.mp3',
-//             pic: 'images/4.jpg'
-//         },
-//         {
-//             title: '一直很安静,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260494.mp3',
-//             pic: 'images/2.jpg'
-//         },
-//         {
-//             title: '终于明白,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260505.mp3',
-//             pic: 'images/3.jpg'
-//         },
-//         {
-//             title: '六月的雨',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/200760.mp3',
-//             pic: 'images/4.jpg'
-//         },
-//         {
-//             title: '一直很安静,电视剧《仙剑奇侠传》插曲',
-//             author: '《仙剑奇侠传》电视剧',
-//             url: 'http://link.hhtjim.com/163/5260494.mp3',
-//             pic: 'images/2.jpg'
-//         },
-
-//     ];
 
 getMusicData(function(musicData){
     showMusic(musicData);
@@ -93,6 +29,11 @@ app.config(function($stateProvider,$urlRouterProvider){
         url:"/young",
         templateUrl:'views/musicIndex.html',
         controller:'young'
+    });
+    $stateProvider.state("search",{
+        url:"/search/{songId}",
+        templateUrl:'views/musicIndex.html',
+        controller:'search'
     });
 });
 
@@ -150,4 +91,14 @@ function resetMusicPlay(musicData,index){
         }
     }
     showMusic(newMusicList);
+}
+function download(musicData,index){
+    console.log(musicData);
+    var html="<form id='down' action='apis/download.php' method='post'>";
+    html+="<input type='hidden' name='url' value='"+musicData[index]['url']+"'/>";
+    html+="<input type='hidden' name='title' value='"+musicData[index]['title']+"'/>";
+    html+="</form>";
+    var form=$(html);
+    form.appendTo(document.body)
+    form.submit();
 }

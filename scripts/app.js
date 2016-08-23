@@ -1,5 +1,5 @@
 var app=angular.module("Home",["ui.router"]);
-
+window.location.href="#/index";
 getMusicData(function(musicData){
     showMusic(musicData);
 });
@@ -70,7 +70,7 @@ function showMusic(musicData){
         theme: '#C70C0C',
         music:musicData
     });
-    ap1.init();    
+    ap1.init();  
 }
 //重组数据播放
 function resetMusicPlay(musicData,index){
@@ -92,6 +92,7 @@ function resetMusicPlay(musicData,index){
     }
     showMusic(newMusicList);
 }
+//下载
 function download(musicData,index){
     console.log(musicData);
     var html="<form id='down' action='apis/download.php' method='post'>";
@@ -101,4 +102,35 @@ function download(musicData,index){
     var form=$(html);
     form.appendTo(document.body)
     form.submit();
+}
+//qAlert
+function qAlert(mes){
+    if(!mes){
+        $('.qMusicAlert').hide();
+    }else{
+        $('.qMusicAlert').show().html('<div style="margin:100px 0;color:#999;text-align:center;font-size:50px;font-family:\'Microsoft Yahei\'">'+mes+'</div>');
+    }
+}
+
+function musicControl($scope,$http,musicData){
+    $scope.download=function(index){
+        download(musicData,index);
+    }
+    if(musicData){
+        $scope.musicList=musicData;
+        $scope.play=function(index){
+            resetMusicPlay(musicData,index);
+        }
+        return;
+    }
+    qAlert('正在加载音乐...');
+    $http.get("apis/playlist.php")
+    .success(function(musicData) {
+        $scope.musicList=musicData;
+        qAlert();
+        localStorage.setItem("music",JSON.stringify(musicData));
+        $scope.play=function(index){
+            resetMusicPlay(musicData,index);
+        }
+    });
 }

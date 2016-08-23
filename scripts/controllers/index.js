@@ -1,25 +1,7 @@
 //音乐首页
 app.controller("musicIndex",function($scope,$http){
 	var musicData=JSON.parse(localStorage.getItem("music"));
-	$scope.download=function(index){
-    	download(musicData,index);
-    }
-	if(musicData){
-		$scope.musicList=musicData;
-		$scope.play=function(index){
-			resetMusicPlay(musicData,index);
-		}
-		return;
-	}
-
-	$http.get("apis/playlist.php")
-    .success(function(musicData) {
-		$scope.musicList=musicData;
-		localStorage.setItem("music",JSON.stringify(musicData));
-		$scope.play=function(index){
-			resetMusicPlay(musicData,index);
-		}
-    });
+	musicControl($scope,$http,musicData);
 });
 
 //意境古风
@@ -125,7 +107,7 @@ app.controller("search",function($scope,$http,$stateParams){
 		$scope.musicList=musicData;
 		localStorage.setItem("music-"+songId,JSON.stringify(musicData));
 		if(musicData==''){
-	        $('.qMusicBox').html('<div style="margin:100px 0;color:#999;text-align:center;font-size:50px;font-family:\'Microsoft Yahei\'">没有搜索到歌曲！</div>');
+	        empty('没有搜索到歌曲!')
 	    }
 
 		$scope.play=function(index){

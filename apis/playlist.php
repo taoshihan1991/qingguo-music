@@ -22,16 +22,25 @@ $neteastJson=json_decode($neteast,true);
 if($neteastJson['code']==200){
 	$songs=$neteastJson['result']['tracks'];
 	$result=array();
+	$titles=array();
 	foreach($songs as $song){
 		$temp=array();
 		$temp['title']=$song['album']['name'];
 		$temp['author']=$song['artists'][0]['name'];
 		$temp['url']=$song['mp3Url'];
 		$temp['pic']=$song['album']['picUrl'];
-		$result[]=$temp;
+		
+		if(in_array($temp['title'], $titles)){
+			continue;
+		}else{
+			$header=get_headers($temp['url']);
+			if($header[0]=="HTTP/1.1 200 OK"){
+				$titles[]=$temp['title'];
+				$result[]=$temp;
+			}
+		}
 	}
-
-	echo json_encode(($result));
+	echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 }
 
 

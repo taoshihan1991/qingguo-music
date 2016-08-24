@@ -2,7 +2,7 @@ var app=angular.module("Home",["ui.router"]);
 window.location.href="#/index";
 getMusicData(function(musicData){
     showMusic(musicData);
-});
+},422120471);
 $('.qHeader a').click(function(){
     var index=$(this).index();
     $(".qHeader a").removeClass("current").eq(index).addClass("current");
@@ -39,18 +39,17 @@ app.config(function($stateProvider,$urlRouterProvider){
 
 //函数库
 //获取数据
-function getMusicData(func){
-    var musicData=JSON.parse(localStorage.getItem("music"));
+function getMusicData(func,songId){
+    var musicData=JSON.parse(localStorage.getItem("music-"+songId));
     if(musicData){
-        var musicData=JSON.parse(localStorage.getItem("music"));
         func(musicData);
     }else{
         $.ajax({
              type: "GET",
-             url: "apis/playlist.php",
+             url: "apis/playlist.php?songId="+songId,
              dataType: "json",
              success:function(musicData){
-                localStorage.setItem("music",JSON.stringify(musicData));
+                localStorage.setItem("music-"+songId,JSON.stringify(musicData));
                 func(musicData);   
              },
              error:function(){
@@ -112,7 +111,8 @@ function qAlert(mes){
     }
 }
 
-function musicControl($scope,$http,musicData){
+function musicControl($scope,$http,songId){
+    var musicData=JSON.parse(localStorage.getItem("music-"+songId));
     $scope.download=function(index){
         download(musicData,index);
     }
@@ -121,14 +121,15 @@ function musicControl($scope,$http,musicData){
         $scope.play=function(index){
             resetMusicPlay(musicData,index);
         }
+        qAlert();
         return;
     }
     qAlert('正在加载音乐...');
-    $http.get("apis/playlist.php")
+    $http.get("apis/playlist.php?songId="+songId)
     .success(function(musicData) {
         $scope.musicList=musicData;
         qAlert();
-        localStorage.setItem("music",JSON.stringify(musicData));
+        localStorage.setItem("music-"+songId,JSON.stringify(musicData));
         $scope.play=function(index){
             resetMusicPlay(musicData,index);
         }

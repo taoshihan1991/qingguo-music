@@ -18,6 +18,9 @@ switch ($action) {
 $songId=isset($_GET['songId']) ? intval($_GET['songId']) : $songId;
 
 $neteast=https_request("http://music.163.com/api/playlist/detail?id={$songId}");
+if(!$neteast){
+	exit;
+}
 $neteastJson=json_decode($neteast,true);
 if($neteastJson['code']==200){
 	$songs=$neteastJson['result']['tracks'];
@@ -33,11 +36,14 @@ if($neteastJson['code']==200){
 		if(in_array($temp['title'], $titles)){
 			continue;
 		}else{
-			$header=get_headers($temp['url']);
-			if($header[0]=="HTTP/1.1 200 OK"){
-				$titles[]=$temp['title'];
-				$result[]=$temp;
-			}
+
+			$titles[]=$temp['title'];
+			$result[]=$temp;
+			// $header=get_headers($temp['url']);
+			// if($header[0]=="HTTP/1.1 200 OK"){
+			// 	$titles[]=$temp['title'];
+			// 	$result[]=$temp;
+			// }
 		}
 	}
 	echo json_encode($result,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);

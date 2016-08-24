@@ -185,7 +185,10 @@ body{
 .qPlayer .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap{
   margin: 0 140px 0 3px;
 }
-
+.qPlayer .aplayer .aplayer-pic .aplayer-pause{
+  bottom: 7px;
+  right: 7px;
+}
 /*footer*/
 .qFooter{
   height: 145px;
